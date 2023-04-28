@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Задание №1 Таблица с возможностью добавлять и обновлять данные</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .container{overflow: hidden}
+        .tab{float: left;}
+        .tab-2{margin-left: 50px}
+        .tab-2 input{display: block;margin-bottom: 10px}
+        tr{transition:all .25s ease-in-out}
+        tr:hover{background-color:#EEE;cursor: pointer}
+
+    </style>
+
+</head>
+<body>
+<script>
+        function editTableRow()
+    {
+        let fname = document.getElementById("fname").value,
+            lname = document.getElementById("lname").value,
+            age = document.getElementById("age").value;
+
+            table.rows[rIndex].cells[0].innerHTML = fname;
+            table.rows[rIndex].cells[1].innerHTML = lname;
+            table.rows[rIndex].cells[2].innerHTML = age;
+
+    }
+
+        function removeSelectedRow()
+        {
+            table.deleteRow(rIndex);
+            // clear input text
+            document.getElementById("fname").value = "";
+            document.getElementById("lname").value = "";
+            document.getElementById("age").value = "";
+        }
+</script>
+<div class="container">
+    <div class="tab tab-1">
+        <table id="table" border="1">
+            <tr>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Возраст</th>
+            </tr>
+            <tr>
+                <td>Пупкин</td>
+                <td>Сергей</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Шлюпкин</td>
+                <td>Коля</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>Бука</td>
+                <td>Максим</td>
+                <td>20</td>
+            </tr>
+        </table>
+    </div>
+    <div class="tab tab-2">
+        Имя :<input type="text" name="fname" id="fname">
+        Фамилия :<input type="text" name="lname" id="lname">
+        Возраст :<input type="number" name="age" id="age">
+
+        <button onclick="addHtmlTableRow();">Добавить</button>
+        <button onclick="editTableRow();">Редактировать</button>
+        <button onclick="removeSelectedRow();">Удалить</button>
+    </div>
+</div>
+
+<script src="table.js"></script>
+
+
+</script>
+</body>
+</html>
+
